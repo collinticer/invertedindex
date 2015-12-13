@@ -1,4 +1,5 @@
 import math
+import ast
 
 def searchPhrase(searchQuery):
 	words = searchQuery.split()
@@ -42,7 +43,7 @@ def searchWord(searchQuery):
 					termFrequency = (termFrequency + tf(docScore[0], docScore[1])) / 2
 				docID = doc
 				inverseFreq = idf(numDocumentsTotal, numDocumentsMatched)
-				tfIDF = tfidf(termFrequency, inverseFreq)
+				tfIDF = tfidf(termFrequency, inverseFreq, docID)
 				result = []
 				result.append(docID)
 				result.append(tfIDF)
@@ -63,9 +64,16 @@ def timeRelevanceWeight(docID):
 def tfidf(tf, idf, docID):
 	return (tf * idf) * timeRelevanceWeight(docID)
 
+#here is where you define any method to save the inverted index (mysql, textfile, static variable, etc.)
+def saveInvertedIndex(invertedIndex):
+	outputFile = open('invertedindex.txt', 'w')
+	outputFile.write(str(invertedIndex))
+	return
+
 #here is where you define any method to retrieve an invertedIndex (mysql, textfile, static variable, etc.)
 def getInvertedIndex():
-	invertedIndex = {'hello': {1: [[3, 0.1]], 2: [[8, 0.3], [2, 0.1]], 4: [[1, 0.5], [7, 0.1]]}, 'world': {1: [[2, 0.8], [3, 0.4]], 4: [[3, 0.9]]}, 'there': {1: [[4, 0.1], [6, 0.2]], 4: [[1, 0.2], [8, 0.2]]}}
+	inputData = open('invertedindex.txt', 'r').read()
+	invertedIndex = ast.literal_eval(inputData)
 	return invertedIndex
 
 #here is where you define any method to retrieve the number of total documents in the corpus (mysql num rows, textfile, static variable, etc.)
