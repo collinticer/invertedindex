@@ -26,3 +26,21 @@ def tf(termFrequency, frequencyWeight):
 	return termFrequency
 ```
 Which would output the raw term frequency.
+
+Below, is information on overriding each of the functions.
+
+##`tf(termFrequency, termWeight)`##
+
+Default definition:
+
+```python
+def tf(termFrequency, frequencyWeight):
+	return 1 + math.log10(termFrequency * frequencyWeight)
+```
+
+Example overriden function:
+
+```python
+def tf(termFrequency, frequencyWeight):
+	return termFrequency
+```
