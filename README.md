@@ -29,7 +29,7 @@ Which would output the raw term frequency.
 
 Below, is information on overriding each of the functions.
 
-##`tf(termFrequency, termWeight)`##
+####`tf(termFrequency, termWeight)`####
 
 Default definition:
 
@@ -43,4 +43,22 @@ Example overriden function:
 ```python
 def tf(termFrequency, frequencyWeight):
 	return termFrequency
+```
+
+####`idf(totalDocuments, numberDocumentsContainingQuery)`####
+
+Default definition:
+
+```python
+def idf(totalDocuments, numberDocumentsContainingQuery):
+	idf = math.log10(totalDocuments / numberDocumentsContainingQuery)
+	return idf
+```
+
+Example overriden function:
+
+```python
+def idf(totalDocuments, numberDocumentsContainingQuery):
+	idf = math.log10(1 + (totalDocuments / numberDocumentsContainingQuery))
+	return idf
 ```
