@@ -5,3 +5,8 @@ To use this library, simply call:
 searchWord('word')
 ```
 
+Or, to search an entire phrase by splitting the string at each space, use:
+```python
+searchPhrase('hello world')
+```
+
