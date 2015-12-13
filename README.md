@@ -10,23 +10,6 @@ Or, to search an entire phrase by splitting the string at each space, use:
 searchPhrase('hello world')
 ```
 
-To override the default term frequency calculation, define a custom `tf(termFrequency, termWieght)` function.
-
-For example, the default definition of:
-
-```python
-def tf(termFrequency, frequencyWeight):
-	return 1 + math.log10(termFrequency * frequencyWeight)
-```
-
-Could be overridden, as:
-
-```python
-def tf(termFrequency, frequencyWeight):
-	return termFrequency
-```
-Which would output the raw term frequency.
-
 Below, is information on overriding each of the functions.
 
 To learn more about term frequency, inverse document frequency, and Term frequency–Inverse document frequency calculations, [this page](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) is a great starting point.
