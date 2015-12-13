@@ -56,8 +56,12 @@ def idf(totalDocuments, numberDocumentsContainingQuery):
 	idf = math.log10(totalDocuments / numberDocumentsContainingQuery)
 	return idf
 
-def tfidf(tf, idf):
-	return tf * idf
+def timeRelevanceWeight(docID):
+    #for now, simply return weight of 1 so it doesn't affect calculations if it is used
+    return 1.0
+
+def tfidf(tf, idf, docID):
+	return (tf * idf) * timeRelevanceWeight(docID)
 
 #here is where you define any method to retrieve an invertedIndex (mysql, textfile, static variable, etc.)
 def getInvertedIndex():
