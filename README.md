@@ -29,6 +29,8 @@ Which would output the raw term frequency.
 
 Below, is information on overriding each of the functions.
 
+To learn more about term frequency, inverse document frequency, and Term frequency–Inverse document frequency calculations, [this page](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) is a great starting point.
+
 ####`tf(termFrequency, termWeight)`####
 
 Default definition:
@@ -39,8 +41,6 @@ def tf(termFrequency, frequencyWeight):
 ```
 
 Example overriden function:
-
-To learn more about term frequency, inverse document frequency, and Term frequency–Inverse document frequency calculations, [this page](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) is a great starting point.
 
 ```python
 def tf(termFrequency, frequencyWeight):
